@@ -43,6 +43,18 @@ function boot(file, remembered = true) {
   window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
   window.EJS_threads = true;
   window.EJS_startOnLoaded = true;
+  // Keep rendering light and skip one frame only when emulation falls behind.
+  window.EJS_defaultOptions = {
+    ppsspp_internal_resolution: '480x272',
+    ppsspp_software_rendering: 'disabled',
+    ppsspp_frameskip: '1',
+    ppsspp_auto_frameskip: 'enabled',
+    ppsspp_frame_duplication: 'disabled',
+    ppsspp_texture_scaling_level: 'disabled',
+    ppsspp_texture_anisotropic_filtering: 'disabled',
+    ppsspp_spline_quality: 'Low',
+    shader: 'disabled'
+  };
   window.EJS_color = '#dc9a51';
   window.EJS_onGameStart = () => { document.getElementById('note').hidden = remembered; };
   document.getElementById('setup').hidden = true;
